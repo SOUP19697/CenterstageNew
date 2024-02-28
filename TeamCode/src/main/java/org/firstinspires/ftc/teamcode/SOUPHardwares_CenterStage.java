@@ -293,7 +293,7 @@ public class SOUPHardwares_CenterStage {
         lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         Thread.sleep(timeMS);
 
-        grab1.setPosition(1);
+        grab1.setPosition(0.4);
         Thread.sleep(1500);
         grab2.setPosition(0.2);
         Thread.sleep(1500);

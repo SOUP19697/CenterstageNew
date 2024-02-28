@@ -19,9 +19,9 @@ public class RightMidRedPipeline extends OpenCvPipeline {
     private int rightTopSide = 100;
     private int rightRightSide = 1270;
     private int rightBottomSide = 150;
-    private int midLeftSide = 665;
+    private int midLeftSide = 615;
     private int midTopSide = 90;
-    private int midRightSide = 715;
+    private int midRightSide = 665;
     private int midBottomSide = 140;
     private double crThreshold = 150;
     private long leftCount = 0;

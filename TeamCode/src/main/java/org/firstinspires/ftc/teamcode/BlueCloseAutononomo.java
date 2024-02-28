@@ -100,15 +100,14 @@ public class BlueCloseAutononomo extends LinearOpMode {
                 soupRobot.turnRight(0.5, 2, 3000);
                 soupRobot.driveRight(0.7, 0.12, 800);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.5);
+                soupRobot.intake.setPower(-0.4);
                 sleep(1500);
-                soupRobot.intake.setPower(0.5);
-                sleep(1000);
                 soupRobot.intake.setPower(0);
                 //head towards board
                 soupRobot.driveRight(0.7, 1 , 1000);
                 soupRobot.turnRight(0.7, 0.85, 1000);
-                soupRobot.driveForward(0.7, 0.18, 800);
+                soupRobot.driveForward(0.7, 0.2, 800);
+                soupRobot.driveLeft(0.5, 0.1, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1300, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);

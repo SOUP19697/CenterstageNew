@@ -89,21 +89,18 @@ public class RedFarAutononomo extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_FrontLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 //line up with spike tape and dodge prop
-                soupRobot.driveForward(0.7, 1, 1000);
-                soupRobot.turnRight(0.5, 2, 3000);
-                soupRobot.driveRight(0.7, 0.12, 800);
+                soupRobot.driveForward(0.5, 2, 3000);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.5);
-                sleep(1500);
-                soupRobot.intake.setPower(0.5);
+                soupRobot.intake.setPower(-0.4);
+                sleep(2000);
+                soupRobot.intake.setPower(0.4);
                 sleep(1000);
                 soupRobot.intake.setPower(0);
                 //park
-                soupRobot.driveBackwards(0.5, 1, 1500);
-                soupRobot.driveLeft(0.5, 1, 1500);
-                soupRobot.driveForward(0.8, 4, 5000);
-                soupRobot.scorePixel(0.5, 800, 1000);
-                soupRobot.returnToClosed(0.1, 4000);
+                soupRobot.turnRight(0.5, 0.95, 1500);
+                soupRobot.driveForward(0.8, 3.5, 5000);
+                soupRobot.scorePixel(0.5, 600, 1000);
+                soupRobot.returnToClosed(0.1, 6000);
                 break;
             case RIGHT:
                 soupRobot.drivetrainDCMotor_FrontRight.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -115,18 +112,18 @@ public class RedFarAutononomo extends LinearOpMode {
                 //line up with right spike tape
                 soupRobot.driveForward(0.5, 1.1, 1500);
                 soupRobot.turnLeft(0.5, 1, 1000);
-                soupRobot.driveBackwards(0.5, 0.19, 500);
+                soupRobot.driveBackwards(0.5, 0.1, 800);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.5);
+                soupRobot.intake.setPower(-0.4);
                 sleep(1500);
-                soupRobot.intake.setPower(0.5);
+                soupRobot.intake.setPower(0.4);
                 sleep(1000);
                 soupRobot.intake.setPower(0);
                 soupRobot.driveRight(0.5, 1, 1500);
-                soupRobot.driveBackwards(0.8, 4, 6000);
-                soupRobot.turnRight(0.5, 2, 2000);
+                soupRobot.driveBackwards(0.8, 3.5, 6000);
+                soupRobot.turnRight(0.5, 2.2, 2000);
                 soupRobot.scorePixel(0.5, 800, 1000);
-                soupRobot.returnToClosed(0.1, 4000);
+                soupRobot.returnToClosed(0.1, 6000);
                 break;
         }
 

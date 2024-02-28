@@ -9,8 +9,8 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Red CLose Autononomo")
-public class RedCloseAutononomo extends LinearOpMode {
+@Autonomous(name = "Red Close Roll")
+public class RedCloseAutononomo2 extends LinearOpMode {
     private SOUPHardwares_CenterStage soupRobot;
     OpenCvCamera webcam;
     RightMidRedPipeline pipeline;
@@ -73,17 +73,9 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.intake.setPower(0.5);
                 sleep(1000);
                 soupRobot.intake.setPower(0);
-                //head towards board
-                soupRobot.driveForward(0.5, 1.43, 2000);
-                soupRobot.driveLeft(0.5, 0.35, 800);
-                //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
-                //go backstage
-                soupRobot.driveRight(0.5,1.25, 2500);
-                soupRobot.driveForward(0.5, 0.9, 1000);
+                //park
+                soupRobot.driveRight(0.5, 1, 1000);
+                soupRobot.driveForward(0.5, 2 , 4000);
                 break;
             case MIDDLE:
                 telemetry.addLine("it went middle");
@@ -95,26 +87,19 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 //line up with spike tape and dodge prop
                 soupRobot.driveForward(0.7, 1, 1000);
-                soupRobot.turnLeft(0.5, 2.1, 1500);
-                //soupRobot.driveLeft(0.7, 0.12, 800);
+                soupRobot.turnLeft(0.5, 2, 2000);
+                soupRobot.driveLeft(0.5, 0.1, 800);
                 //drop purple pixel
                 soupRobot.intake.setPower(-0.4);
                 sleep(1500);
                 soupRobot.intake.setPower(0.5);
                 sleep(1000);
                 soupRobot.intake.setPower(0);
-                //head towards board
-                soupRobot.driveLeft(0.6, 1 , 1000);
-                soupRobot.turnLeft(0.6, 1, 1000);
-                soupRobot.driveForward(0.6, 0.37, 800);
-                //score yellow pixel
-                soupRobot.scorePixel(0.5, 1300, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.2, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
-                //go backstage
-                soupRobot.driveRight(0.8,1, 1500);
-                soupRobot.driveForward(0.8, 0.85, 1000);
+                //park
+                soupRobot.turnRight(0.5, 0.1, 800);
+                soupRobot.driveForward(0.9, 0.8, 2000);
+                soupRobot.driveLeft(0.9, 1.7, 5000);
+
                 break;
             case RIGHT:
                 //reset encoders on wheels
@@ -135,17 +120,9 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.intake.setPower(0.5);
                 sleep(1000);
                 soupRobot.intake.setPower(0);
-                //head towards board
-                soupRobot.driveForward(0.4, 0.55, 1500);
-                soupRobot.driveRight(0.6, 0.2, 800);
-                //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
-                //go backstage
-                soupRobot.driveRight(0.8, 0.7, 1500);
-                soupRobot.driveForward(0.8, 0.7, 1000);
+                //park
+                soupRobot.driveRight(0.5, 1, 1000);
+                soupRobot.driveForward(0.5, 1.4 , 4000);
                 break;
         }
     }

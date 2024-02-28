@@ -15,7 +15,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.SOUPHardwares_CenterStage;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="KILL ME.", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="gracious professionalism", group="Linear Opmode")
 public class killme extends LinearOpMode {
     private SOUPHardwares_CenterStage soupRobot = null;
 
@@ -70,16 +70,16 @@ public class killme extends LinearOpMode {
 
     private void grabbingThing() throws InterruptedException {
         //control pixel dropper
-        //note: grab1 is the plate and grab2 is the stick that drops the servo
+        //note: grab1 is the plate and grab2 is the stick that drops the pixel
         if (gamepad1.y || gamepad2.y) {
             //open pixel stick
-            soupRobot.grab2.setPosition(1);
+            soupRobot.grab2.setPosition(0.2);
         } else if (gamepad1.x || gamepad2.x) {
             //close pixel stick
             soupRobot.grab2.setPosition(0.05);
 
         } else if (gamepad1.b || gamepad2.b) {
-            //close plate
+            //open plate
             soupRobot.grab1.setPosition(0.4);
 
         } else if (gamepad1.a || gamepad2.a){
