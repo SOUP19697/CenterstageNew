@@ -28,6 +28,7 @@ public class killme extends LinearOpMode {
         soupRobot.lifterDCMotor_Left.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         soupRobot.lifterDCMotor_Right.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
+
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
@@ -35,10 +36,6 @@ public class killme extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while ( opModeIsActive() ) {
             //run all the functions in the actual loop
-
-            //wheelTest();
-
-            servoTest();
 
             // lift
             lifterControl();
@@ -87,10 +84,6 @@ public class killme extends LinearOpMode {
         }
     }
 
-    /* private void cueTaylorSwift() {
-        SoundPlayer.getInstance().startPlaying(hardwareMap.appContext, hardwareMap.appContext.getResources().getIdentifier("soundFileName", "raw", hardwareMap.appContext.getPackageName()));
-    } */
-
     private void grabPixel() {
         //grab pixel with intake wheels
         if (gamepad1.right_bumper || gamepad2.right_bumper) {
@@ -125,79 +118,34 @@ public class killme extends LinearOpMode {
         soupRobot.drivetrainDCMotor_RearRight.setPower( rrspeed );
 
     }
-
-    private void servoTest() throws InterruptedException {
-        if (gamepad1.left_trigger > 0) {
-            soupRobot.lifterDCMotor_Left.setTargetPosition(0);
-            soupRobot.lifterDCMotor_Right.setTargetPosition(0);
-
-            soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        }}
-
-    private void wheelTest() {
-        //tests wheels to check if there's a wiring/configuration issue
-        if (gamepad1.dpad_up) {
-            telemetry.addLine("front right");
-            telemetry.update();
-            soupRobot.drivetrainDCMotor_FrontRight.setPower(1);
-        } else if (gamepad1.dpad_right) {
-            telemetry.addLine("back right");
-            telemetry.update();
-            soupRobot.drivetrainDCMotor_RearRight.setPower(1);
-        } else if (gamepad1.dpad_down) {
-            telemetry.addLine("back left");
-            telemetry.update();
-            soupRobot.drivetrainDCMotor_RearLeft.setPower(1);
-        } else if (gamepad1.dpad_left) {
-            telemetry.addLine("front left");
-            telemetry.update();
-            soupRobot.drivetrainDCMotor_FrontLeft.setPower(1);
-        } else {
-            soupRobot.drivetrainDCMotor_FrontLeft.setPower(0);
-            soupRobot.drivetrainDCMotor_FrontRight.setPower(0);
-            soupRobot.drivetrainDCMotor_RearLeft.setPower(0);
-            soupRobot.drivetrainDCMotor_RearRight.setPower(0);
-        }
-    }
-    public DcMotor LiftMotor;
-    private void lifterControl() throws InterruptedException {
+    
+    private void lifterControl(){
         //moving lift
-        // move up
-        if ( gamepad1.dpad_up || gamepad2.dpad_up ) {
-
-            soupRobot.lifterDCMotor_Left.setTargetPosition(2000);
-            soupRobot.lifterDCMotor_Right.setTargetPosition(2000);
-            soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        if (gamepad1.dpad_up && (soupRobot.lifterDCMotor_Left.getCurrentPosition() <= 1900)) {
             soupRobot.lifterDCMotor_Left.setPower(0.6);
             soupRobot.lifterDCMotor_Right.setPower(0.6);
-
-
-
-        } // move down
-        else if ( gamepad1.dpad_down || gamepad2.dpad_down ) {
-
-           // soupRobot.grab2.setPosition(0.05);
-
-            soupRobot.grab1.setPosition(0);
-
-            soupRobot.lifterDCMotor_Left.setTargetPosition(0);
-            soupRobot.lifterDCMotor_Right.setTargetPosition(0);
-
+            soupRobot.lifterDCMotor_Left.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() + 100);
+            soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() + 100);
             soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            Thread.sleep(3000);
-
-            soupRobot.lifterDCMotor_Left.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            soupRobot.lifterDCMotor_Right.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        }
-
-
-}}
+        } else if (gamepad1.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 800)) {
+            soupRobot.lifterDCMotor_Left.setPower(0.6);
+            soupRobot.lifterDCMotor_Right.setPower(0.6);
+            soupRobot.lifterDCMotor_Left.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
+            soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
+            soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        } else if ((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 800) && !gamepad1.dpad_up) {
+            soupRobot.grab1.setPosition(0);
+            soupRobot.lifterDCMotor_Left.setPower(0.2);
+            soupRobot.lifterDCMotor_Right.setPower(0.2);
+            soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+            soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+            soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        } 
+    }
+}
 
 // To connect with the robot:
 // SDK Path:

@@ -9,7 +9,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Blue CLose Roll")
+@Autonomous(name = "Z DOES NOT WORK")
 public class BlueCloseAutononomo2 extends LinearOpMode {
     private SOUPHardwares_CenterStage soupRobot;
     OpenCvCamera webcam;

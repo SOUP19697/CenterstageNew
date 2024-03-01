@@ -20,6 +20,10 @@ public class SOUPHardwares_CenterStage {
     public DcMotor lifterDCMotor_Left = null;
     public DcMotor lifterDCMotor_Right = null;
 
+    //pixel placer
+    public Servo pixeler1;
+    public Servo pixeler2;
+
     //airplane
     public DcMotor airplane = null;
 
@@ -58,6 +62,10 @@ public class SOUPHardwares_CenterStage {
         lifterDCMotor_Left  = hardwareMap.get( DcMotor.class, "lifterDCMotor_Left");
         lifterDCMotor_Right = hardwareMap.get( DcMotor.class, "lifterDCMotor_Right");
 
+        //pixel placer
+        pixeler1 = hardwareMap.get(Servo.class, "pixeler1");
+        pixeler2 = hardwareMap.get(Servo.class, "pixeler2");
+
         //airplane launcher
         airplane = hardwareMap.get(DcMotor.class, "airplane");
 
@@ -83,8 +91,10 @@ public class SOUPHardwares_CenterStage {
         drivetrainDCMotor_RearRight.setDirection( DcMotor.Direction.REVERSE);
         lifterDCMotor_Left.setDirection(  DcMotor.Direction.FORWARD);
         lifterDCMotor_Right.setDirection(  DcMotor.Direction.REVERSE);
+        pixeler1.setDirection(Servo.Direction.FORWARD);
+        pixeler2.setDirection(Servo.Direction.REVERSE);
 
-        // SET ZERO POWER BEHAVIOR (I don't think this actually works but it's the thought that counts)
+        // SET ZERO POWER BEHAVIOR
         // chassis motors
         drivetrainDCMotor_RearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         drivetrainDCMotor_FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -298,5 +308,20 @@ public class SOUPHardwares_CenterStage {
         grab2.setPosition(0.2);
         Thread.sleep(1500);
     }
+
+    public void placePixelDelicatelyBlue () throws InterruptedException {
+        pixeler1.setPosition(1);
+        Thread.sleep(2000);
+        pixeler1.setPosition(0);
+
+    }
+
+    public void placePixelDelicatelyRed () throws InterruptedException {
+        pixeler2.setPosition(1);
+        Thread.sleep(2000);
+        pixeler2.setPosition(0);
+
+    }
+
 
 }

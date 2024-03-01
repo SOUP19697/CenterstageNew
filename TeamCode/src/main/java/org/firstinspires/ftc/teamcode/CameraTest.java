@@ -14,7 +14,7 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvPipeline;
 
-@Autonomous(name = "Camera Test")
+@Autonomous(name = "Ze Camera Test")
 public class CameraTest extends LinearOpMode {
     OpenCvCamera webcam;
     ExamplePipeline pipeline;

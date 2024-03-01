@@ -9,12 +9,12 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Z DOES. NOT WORK")
-public class RedFarAutononomo extends LinearOpMode {
+@Autonomous(name = "Blue Far Score")
+public class BlueFarAutononomo2 extends LinearOpMode {
     private SOUPHardwares_CenterStage soupRobot;
     OpenCvCamera webcam;
-    LeftMidRedPipeline pipeline;
-    LeftMidRedPipeline.PropPosition snapshotAnalysis = LeftMidRedPipeline.PropPosition.RIGHT;
+    RightMidBluePipeline pipeline;
+    RightMidBluePipeline.PropPosition snapshotAnalysis = RightMidBluePipeline.PropPosition.RIGHT;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -23,7 +23,7 @@ public class RedFarAutononomo extends LinearOpMode {
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
-        pipeline = new LeftMidRedPipeline();
+        pipeline = new RightMidBluePipeline();
         webcam.setPipeline(pipeline);
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener(){
             @Override
@@ -42,7 +42,7 @@ public class RedFarAutononomo extends LinearOpMode {
             telemetry.addData("Left Count", pipeline.getLeftCount());
             telemetry.addData("Middle Count", pipeline.getMidCount());
             telemetry.addData("Right Count", pipeline.getRightCount());
-            telemetry.addData("Last Left Color Average", pipeline.getLastLeftColorAverage());
+            telemetry.addData("Last Right Color Average", pipeline.getLastRightColorAverage());
             telemetry.addData("Last Mid Color Average", pipeline.getLastMidColorAverage());
             telemetry.addData("Realtime Analysis", pipeline.getAnalysis());
             telemetry.update();
@@ -63,22 +63,23 @@ public class RedFarAutononomo extends LinearOpMode {
                 telemetry.addLine("it went left");
                 telemetry.update();
                 //line up with left spike tape
-                soupRobot.driveForward(0.5, 0.1, 500);
-                soupRobot.driveLeft(0.5, 0.7, 1500);
-                soupRobot.driveForward(0.6, 1, 1500);
-                soupRobot.turnLeft(0.5, 0.95, 1000);
+                soupRobot.driveForward(0.5, 1.1, 1500);
+                soupRobot.turnRight(0.5, 1, 1000);
+                soupRobot.driveBackwards(0.3, 0.1, 800);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.5);
-                sleep(1500);
-                soupRobot.intake.setPower(0.5);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
+                soupRobot.placePixelDelicatelyBlue();
+                //head towards board
+                soupRobot.driveLeft(0.5, 0.9, 1500);
+                soupRobot.driveBackwards(0.8, 3.4, 5000);
+                soupRobot.turnLeft(0.5, 1.9, 1800);
+                soupRobot.driveLeft(0.8, 1, 3000);
+                //score yellow pixel
+                soupRobot.scorePixel(0.5, 1400, 2000);
+                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.driveBackwards(0.1, 1, 1000);
+                soupRobot.returnToClosed(0.3, 3000);
                 //park
-                soupRobot.driveRight(0.5, 1, 1500);
-                soupRobot.driveBackwards(0.8, 4.5, 5000);
-                soupRobot.turnRight(0.5, 2, 2000);
-                soupRobot.scorePixel(0.5, 800, 1000);
-                soupRobot.returnToClosed(0.1, 4000);
+                soupRobot.driveForward(0.3, 0.2, 1000);
                 break;
             case MIDDLE:
                 telemetry.addLine("it went middle");
@@ -91,16 +92,18 @@ public class RedFarAutononomo extends LinearOpMode {
                 //line up with spike tape and dodge prop
                 soupRobot.driveForward(0.5, 2, 3000);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.4);
-                sleep(2000);
-                soupRobot.intake.setPower(0.4);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
+                soupRobot.placePixelDelicatelyBlue();
+                //head towards board
+                soupRobot.turnLeft(0.5, 0.95, 1500);
+                soupRobot.driveForward(0.8, 3.4, 5000);
+                soupRobot.driveLeft(0.5, 1, 1500);
+                //score yellow pixel
+                soupRobot.scorePixel(0.5, 1300, 2000);
+                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.driveBackwards(0.2, 1, 1000);
+                soupRobot.returnToClosed(0.3, 3000);
                 //park
-                soupRobot.turnRight(0.5, 0.95, 1500);
-                soupRobot.driveForward(0.8, 3.5, 5000);
-                soupRobot.scorePixel(0.5, 600, 1000);
-                soupRobot.returnToClosed(0.1, 6000);
+                soupRobot.driveForward(0.3, 0.4, 1000);
                 break;
             case RIGHT:
                 soupRobot.drivetrainDCMotor_FrontRight.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -110,23 +113,23 @@ public class RedFarAutononomo extends LinearOpMode {
                 telemetry.addLine("it went right");
                 telemetry.update();
                 //line up with right spike tape
-                soupRobot.driveForward(0.5, 1.1, 1500);
-                soupRobot.turnLeft(0.5, 1, 1000);
-                soupRobot.driveBackwards(0.5, 0.1, 800);
+                soupRobot.driveForward(0.3, 0.1, 800);
+                soupRobot.driveLeft(0.3, 0.1, 1000);
+                soupRobot.driveForward(0.5, 0.9, 1500);
+                soupRobot.turnLeft(0.5, 0.9, 1000);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.4);
-                sleep(1500);
-                soupRobot.intake.setPower(0.4);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
-                soupRobot.driveRight(0.5, 1, 1500);
-                soupRobot.driveBackwards(0.8, 3.5, 6000);
-                soupRobot.turnRight(0.5, 2.2, 2000);
-                soupRobot.scorePixel(0.5, 800, 1000);
-                soupRobot.returnToClosed(0.1, 6000);
+                soupRobot.placePixelDelicatelyBlue();
+                //head towards board
+                soupRobot.driveForward(0.8, 3.4, 5000);
+                soupRobot.driveLeft(0.3, 0.1, 800);
+                //score yellow pixel
+                soupRobot.scorePixel(0.5, 1400, 2000);
+                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.driveBackwards(0.1, 1, 1000);
+                soupRobot.returnToClosed(0.3, 3000);
+                //park
+                soupRobot.driveForward(0.3, 0.2, 1000);
                 break;
         }
-
-        //soupRobot.driveLeft(0.5, 2000);
     }
 }

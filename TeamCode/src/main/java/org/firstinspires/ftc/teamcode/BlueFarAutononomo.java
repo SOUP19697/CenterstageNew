@@ -9,7 +9,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Blue Far Autononomo")
+@Autonomous(name = "Z ONLY KINDA WORKS")
 public class BlueFarAutononomo extends LinearOpMode {
     private SOUPHardwares_CenterStage soupRobot;
     OpenCvCamera webcam;
@@ -63,18 +63,15 @@ public class BlueFarAutononomo extends LinearOpMode {
                 telemetry.addLine("it went left");
                 telemetry.update();
                 //line up with left spike tape
-                soupRobot.driveForward(0.5, 1.1, 1500);
+                soupRobot.driveForward(0.5, 1.2, 1500);
                 soupRobot.turnRight(0.5, 1, 1000);
-                soupRobot.driveBackwards(0.5, 0.1, 800);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.4);
-                sleep(1500);
-                soupRobot.intake.setPower(0.4);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
-                soupRobot.driveLeft(0.5, 1, 1500);
+                soupRobot.placePixelDelicatelyBlue();
+                //park
+                soupRobot.driveLeft(0.5, 0.9, 1500);
                 soupRobot.driveBackwards(0.8, 3.5, 6000);
                 soupRobot.turnLeft(0.5, 2.2, 2000);
+                //drop yellow pixel
                 soupRobot.scorePixel(0.5, 800, 1000);
                 soupRobot.returnToClosed(0.1, 6000);
                 break;
@@ -89,14 +86,11 @@ public class BlueFarAutononomo extends LinearOpMode {
                 //line up with spike tape and dodge prop
                 soupRobot.driveForward(0.5, 2, 3000);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.4);
-                sleep(1500);
-                soupRobot.intake.setPower(0.4);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
+                soupRobot.placePixelDelicatelyBlue();
                 //park
                 soupRobot.turnLeft(0.5, 0.95, 1500);
                 soupRobot.driveForward(0.8, 3.5, 5000);
+                soupRobot.turnLeft(0.5, 0.2, 1000);
                 soupRobot.scorePixel(0.5, 600, 1000);
                 soupRobot.returnToClosed(0.1, 6000);
                 break;
@@ -107,26 +101,20 @@ public class BlueFarAutononomo extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 telemetry.addLine("it went right");
                 telemetry.update();
-                //line up with left spike tape
-                soupRobot.driveForward(0.5, 0.1, 500);
-                soupRobot.driveRight(0.5, 0.7, 1500);
-                soupRobot.driveForward(0.6, 1, 1500);
-                soupRobot.turnRight(0.5, 1, 1000);
+                //line up with right spike tape
+                soupRobot.driveForward(0.3, 0.1, 800);
+                soupRobot.driveLeft(0.3, 0.15, 1000);
+                soupRobot.driveForward(0.5, 0.9, 1500);
+                soupRobot.turnLeft(0.5, 1, 1000);
                 //drop purple pixel
-                soupRobot.intake.setPower(-0.4);
-                sleep(1500);
-                soupRobot.intake.setPower(0.2);
-                sleep(1000);
-                soupRobot.intake.setPower(0);
+                soupRobot.placePixelDelicatelyBlue();
                 //park
-                soupRobot.driveLeft(0.5, 1, 1500);
-                soupRobot.driveBackwards(0.8, 4.3, 5000);
-                soupRobot.turnLeft(0.5, 2.1, 2000);
+                soupRobot.driveRight(0.5, 1, 1500);
+                soupRobot.driveForward(0.8, 3.5, 5000);
+                soupRobot.turnLeft(0.5, 0.2, 800);
                 soupRobot.scorePixel(0.5, 800, 1000);
-                soupRobot.returnToClosed(0.1, 6000);
+                soupRobot.returnToClosed(0.1, 5000);
                 break;
         }
-
-        //soupRobot.driveLeft(0.5, 2000);
     }
 }
