@@ -70,25 +70,8 @@ public class RedCloseAutononomo extends LinearOpMode {
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyRed();
                 //head towards board
-                soupRobot.driveForward(0.5, 1.3, 2000);
-                soupRobot.driveLeft(0.5, 0.4, 800);
-                //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
-                //go backstage
-                soupRobot.driveRight(0.5,1.35, 2500);
-                soupRobot.driveForward(0.5, 0.8, 1000);
-                /*//line up with left spike tape
-                soupRobot.driveForward(0.5, 1.2, 1500);
-                soupRobot.turnRight(0.5, 1, 1000);
-                soupRobot.driveBackwards(0.5, 0.1, 800);
-                //drop purple pixel
-                soupRobot.placePixelDelicately();
-                //head towards board
-                soupRobot.driveForward(0.5, 1.4, 2000);
-                soupRobot.driveLeft(0.5, 0.15, 800);
+                soupRobot.driveForward(0.5, 1.35, 2000);
+                soupRobot.driveLeft(0.5, 0.45, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1400, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);
@@ -96,7 +79,7 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.returnToClosed(0.3, 3000);
                 //go backstage
                 soupRobot.driveRight(0.5,1.25, 2500);
-                soupRobot.driveForward(0.5, 0.8, 1000);*/
+                soupRobot.driveForward(0.5, 0.8, 1000);
                 break;
             case MIDDLE:
                 telemetry.addLine("it went middle");
@@ -107,43 +90,23 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_FrontLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 //line up with spike tape and dodge prop
-                soupRobot.driveForward(0.7, 0.95, 1000);
-                soupRobot.turnRight(0.5, 2, 3000);
+                soupRobot.driveForward(0.4, 1.05, 3000);
+                soupRobot.turnLeft(0.4, 1.9, 2000);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyRed();
                 //head towards board
-                soupRobot.driveRight(0.7, 1, 1000);
-                soupRobot.turnRight(0.7, 0.9, 1000);
-                soupRobot.driveForward(0.7, 0.3, 800);
-                soupRobot.driveRight(0.5, 0.1, 800);
+                soupRobot.driveLeft(0.7, 1, 1500);
+                soupRobot.turnLeft(0.7, 1, 1000);
+                soupRobot.driveForward(0.7, 0.3, 1000);
+                soupRobot.driveRight(0.3, 0.1, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1300, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);
                 soupRobot.driveBackwards(0.2, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
-                //go backstage
-                soupRobot.driveLeft(0.8,1, 1500);
-                soupRobot.driveForward(0.8, 0.8, 1000);
-                /*//line up with spike tape and dodge prop
-                soupRobot.driveForward(0.7, 1, 1000);
-                soupRobot.turnLeft(0.5, 2, 2000);
-                soupRobot.driveLeft(0.5, 0.2, 1000);
-                soupRobot.driveBackwards(0.3, 0.1, 800);
-                //drop purple pixel
-                soupRobot.placePixelDelicately();
-                //head towards board
-                soupRobot.driveLeft(0.7, 1, 1000);
-                soupRobot.turnLeft(0.7, 0.9, 1000);
-                soupRobot.driveRight(0.5, 0.3, 1000);
-                soupRobot.driveForward(0.3, 0.1, 800);
-                //score yellow pixel
-                soupRobot.scorePixel(0.5, 1300, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.2, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                soupRobot.returnToClosed(0.4, 3000);
                 //go backstage
                 soupRobot.driveRight(0.8,1, 1500);
-                soupRobot.driveForward(0.8, 0.8, 1000);*/
+                soupRobot.driveForward(0.8, 0.8, 1000);
                 break;
             case RIGHT:
                 //reset encoders on wheels
@@ -155,14 +118,14 @@ public class RedCloseAutononomo extends LinearOpMode {
                 telemetry.update();
                 //line up with right spike tape
                 soupRobot.driveForward(0.4, 0.1, 800);
-                soupRobot.driveRight(0.4, 0.75, 2500);
-                soupRobot.driveForward(0.4, 0.9, 1500);
+                soupRobot.driveRight(0.3, 0.7, 3000);
+                soupRobot.driveForward(0.4, 0.95, 2000);
                 soupRobot.turnRight(0.5, 1, 1000);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyRed();
                 //head towards board
                 soupRobot.driveForward(0.4, 0.5, 1500);
-                soupRobot.driveRight(0.6, 0.1, 800);
+                soupRobot.driveRight(0.6, 0.25, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1400, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);

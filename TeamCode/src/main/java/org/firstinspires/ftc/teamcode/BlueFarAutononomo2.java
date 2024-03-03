@@ -63,7 +63,7 @@ public class BlueFarAutononomo2 extends LinearOpMode {
                 telemetry.addLine("it went left");
                 telemetry.update();
                 //line up with left spike tape
-                soupRobot.driveForward(0.5, 1.1, 1500);
+                soupRobot.driveForward(0.5, 1.2, 1500);
                 soupRobot.turnRight(0.5, 1, 1000);
                 soupRobot.driveBackwards(0.3, 0.1, 800);
                 //drop purple pixel
@@ -72,7 +72,7 @@ public class BlueFarAutononomo2 extends LinearOpMode {
                 soupRobot.driveLeft(0.5, 0.9, 1500);
                 soupRobot.driveBackwards(0.8, 3.4, 5000);
                 soupRobot.turnLeft(0.5, 1.9, 1800);
-                soupRobot.driveLeft(0.8, 1, 3000);
+                soupRobot.driveLeft(0.8, 1.3, 3000);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1400, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);
@@ -114,13 +114,13 @@ public class BlueFarAutononomo2 extends LinearOpMode {
                 telemetry.update();
                 //line up with right spike tape
                 soupRobot.driveForward(0.3, 0.1, 800);
-                soupRobot.driveLeft(0.3, 0.1, 1000);
+                soupRobot.driveLeft(0.3, 0.2, 1000);
                 soupRobot.driveForward(0.5, 0.9, 1500);
                 soupRobot.turnLeft(0.5, 0.9, 1000);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
-                soupRobot.driveForward(0.8, 3.4, 5000);
+                soupRobot.driveForward(0.8, 3.3, 5000);
                 soupRobot.driveLeft(0.3, 0.1, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1400, 2000);
