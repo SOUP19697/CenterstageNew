@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Color;
+
+import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
@@ -7,6 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 public class SOUPHardwares_CenterStage {
 
@@ -34,6 +38,11 @@ public class SOUPHardwares_CenterStage {
     //intake
     public DcMotor intake = null;
 
+    //color sensor
+    private RevColorSensorV3 colorSesnor;
+    public ColorMeMaybe sensors;
+
+
     // System variables
     public HardwareMap hardwareMap = null;
     public ElapsedTime runtime = new ElapsedTime();
@@ -42,6 +51,8 @@ public class SOUPHardwares_CenterStage {
     int turnConstant = 850;
     int sideDriveConstant = 1300;
     int mainDriveConstant = 1100;
+
+
 
     public SOUPHardwares_CenterStage(HardwareMap hwMap) {
         initialize( hwMap );
@@ -75,6 +86,10 @@ public class SOUPHardwares_CenterStage {
 
         //intake
         intake = hardwareMap.get(DcMotor.class, "intake");
+
+        //color sensor
+        colorSesnor = hardwareMap.get(RevColorSensorV3.class, "sensor");
+        sensors = new ColorMeMaybe(colorSesnor);
 
         // set motor mode
         drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.RUN_USING_ENCODER);
@@ -322,6 +337,9 @@ public class SOUPHardwares_CenterStage {
         pixeler2.setPosition(0);
 
     }
+
+
+
 
 
 }

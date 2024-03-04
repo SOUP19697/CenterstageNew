@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -51,6 +52,14 @@ public class killme extends LinearOpMode {
 
             //airplane
             airplaneLaunch();
+
+            //color sensor
+            NormalizedRGBA color = soupRobot.sensors.returnColors();
+            telemetry.addData("Red", color.red);
+            telemetry.addData("Blue", color.blue);
+            telemetry.addData("Green", color.green);
+            telemetry.addData("Color", soupRobot.sensors.findPixelColor());
+            telemetry.update();
 
         }
 
@@ -128,14 +137,14 @@ public class killme extends LinearOpMode {
             soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() + 100);
             soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        } else if (gamepad1.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 800)) {
+        } else if (gamepad1.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 1000)) {
             soupRobot.lifterDCMotor_Left.setPower(0.6);
             soupRobot.lifterDCMotor_Right.setPower(0.6);
             soupRobot.lifterDCMotor_Left.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
             soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
             soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        } else if ((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 800) && !gamepad1.dpad_up) {
+        } else if ((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 1000) && !gamepad1.dpad_up) {
             soupRobot.grab1.setPosition(0);
             soupRobot.lifterDCMotor_Left.setPower(0.2);
             soupRobot.lifterDCMotor_Right.setPower(0.2);
