@@ -70,7 +70,7 @@ public class BlueFarAutononomo2 extends LinearOpMode {
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
                 soupRobot.driveLeft(0.5, 0.9, 1500);
-                soupRobot.driveBackwards(0.8, 3.4, 5000);
+                soupRobot.driveBackwards(0.8, 3.3, 4000);
                 soupRobot.turnLeft(0.5, 1.9, 1800);
                 soupRobot.driveLeft(0.8, 1.3, 3000);
                 //score yellow pixel
@@ -95,8 +95,8 @@ public class BlueFarAutononomo2 extends LinearOpMode {
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
                 soupRobot.turnLeft(0.5, 0.95, 1500);
-                soupRobot.driveForward(0.8, 3.4, 5000);
-                soupRobot.driveLeft(0.5, 1, 1500);
+                soupRobot.driveForward(0.8, 3.5, 5000);
+                soupRobot.driveLeft(0.5, 0.8, 1500);
                 //score yellow pixel
                 soupRobot.scorePixel(0.5, 1300, 2000);
                 soupRobot.liftToPosition(0.5, 1800, 1000);

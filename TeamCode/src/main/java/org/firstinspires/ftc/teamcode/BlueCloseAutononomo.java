@@ -139,7 +139,3 @@ public class BlueCloseAutononomo extends LinearOpMode {
         }
     }
 }
-
-//one square forward/back is about 1100
-//one square side to side is about 1300
-//one 90 degree rotation is about 850

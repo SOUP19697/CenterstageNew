@@ -130,21 +130,21 @@ public class killme extends LinearOpMode {
     
     private void lifterControl(){
         //moving lift
-        if (gamepad1.dpad_up && (soupRobot.lifterDCMotor_Left.getCurrentPosition() <= 1900)) {
+        if ((gamepad1.dpad_up && (soupRobot.lifterDCMotor_Left.getCurrentPosition() <= 1900)) || gamepad2.dpad_up && (soupRobot.lifterDCMotor_Left.getCurrentPosition() <= 1900)) {
             soupRobot.lifterDCMotor_Left.setPower(0.6);
             soupRobot.lifterDCMotor_Right.setPower(0.6);
             soupRobot.lifterDCMotor_Left.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() + 100);
             soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() + 100);
             soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        } else if (gamepad1.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 1000)) {
+        } else if ((gamepad1.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 1000)) || (gamepad2.dpad_down && (soupRobot.lifterDCMotor_Left.getCurrentPosition() >= 1000))) {
             soupRobot.lifterDCMotor_Left.setPower(0.6);
             soupRobot.lifterDCMotor_Right.setPower(0.6);
             soupRobot.lifterDCMotor_Left.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
             soupRobot.lifterDCMotor_Right.setTargetPosition(soupRobot.lifterDCMotor_Left.getCurrentPosition() - 100);
             soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        } else if ((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 1000) && !gamepad1.dpad_up) {
+        } else if (((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 1000) && !gamepad1.dpad_up) || ((soupRobot.lifterDCMotor_Left.getCurrentPosition() < 1000) && !gamepad2.dpad_up)) {
             soupRobot.grab1.setPosition(0);
             soupRobot.lifterDCMotor_Left.setPower(0.2);
             soupRobot.lifterDCMotor_Right.setPower(0.2);

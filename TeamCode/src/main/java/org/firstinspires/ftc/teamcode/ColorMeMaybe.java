@@ -17,18 +17,11 @@ public class ColorMeMaybe {
         GREEN, PURPLE, YELLOW, WHITE, NONE
     }
 
-    private pixelColor bottomPixel = pixelColor.NONE;
-
     private float gain = 90;
 
     private RevColorSensorV3 colorSesnor;
 
-    public final double upperBound = 100;
-
-    public final double lowerBound = 50;
-
-    //private LinearOpMode opmode;
-
+    //i actually have no idea what this does but it works
     public ColorMeMaybe (RevColorSensorV3 colorSesnor) {
         this.colorSesnor = colorSesnor;
 
