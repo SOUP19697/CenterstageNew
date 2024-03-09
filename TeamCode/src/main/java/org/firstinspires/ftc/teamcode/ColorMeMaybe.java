@@ -17,7 +17,7 @@ public class ColorMeMaybe {
         GREEN, PURPLE, YELLOW, WHITE, NONE
     }
 
-    private float gain = 90;
+    private float gain = 100;
 
     private RevColorSensorV3 colorSesnor;
 

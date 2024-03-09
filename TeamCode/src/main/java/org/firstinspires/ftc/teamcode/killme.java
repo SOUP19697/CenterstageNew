@@ -29,6 +29,8 @@ public class killme extends LinearOpMode {
         soupRobot.lifterDCMotor_Left.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         soupRobot.lifterDCMotor_Right.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
+        soupRobot.grab2.setPosition(0.2);
+
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();

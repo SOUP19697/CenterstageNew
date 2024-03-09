@@ -63,22 +63,37 @@ public class RedFarAutononomo2 extends LinearOpMode {
                 telemetry.addLine("it went left");
                 telemetry.update();
                 //line up with left spike tape
-                soupRobot.driveForward(0.3, 0.1, 800);
-                soupRobot.driveRight(0.3, 0.2, 1000);
-                soupRobot.driveForward(0.5, 1, 1500);
-                soupRobot.turnRight(0.5, 0.9, 1000);
+                soupRobot.driveForward(0.5, 0.1, 500);
+                soupRobot.driveLeft(0.5, 0.8, 1500);
+                soupRobot.driveForward(0.6, 1.1, 1500);
+                soupRobot.turnLeft(0.5, 0.95, 1000);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyRed();
                 //head towards board
-                soupRobot.driveForward(0.8, 3.3, 5000);
-                soupRobot.driveRight(0.3, 0.1, 800);
+                soupRobot.driveRight(0.6, 0.8, 1500);
+                soupRobot.turnRight(0.5, 1.9, 2000);
+                soupRobot.driveForward(0.8, 4, 5000);
+                soupRobot.driveRight(0.7, 1, 1500);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
                 soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //park
                 soupRobot.driveForward(0.3, 0.2, 1000);
+                sleep(4000);
                 break;
             case MIDDLE:
                 telemetry.addLine("it went middle");
@@ -97,10 +112,22 @@ public class RedFarAutononomo2 extends LinearOpMode {
                 soupRobot.driveForward(0.8, 3.5, 5000);
                 soupRobot.driveRight(0.5, 1.2, 2500);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1300, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.2, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
+                soupRobot.driveBackwards(0.1, 1, 1000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //park
                 soupRobot.driveForward(0.3, 0.4, 1000);
                 break;
@@ -123,10 +150,22 @@ public class RedFarAutononomo2 extends LinearOpMode {
                 soupRobot.turnRight(0.5, 1.8, 1800);
                 soupRobot.driveRight(0.8, 1.15, 3000);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
                 soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //park
                 soupRobot.driveForward(0.3, 0.2, 1000);
                 break;

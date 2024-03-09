@@ -22,14 +22,14 @@ public class LeftMidBluePipeline extends OpenCvPipeline {
         LEFT, MIDDLE, RIGHT
     }
 
-    private int leftLeftSide = 462;
-    private int leftTopSide = 100;
-    private int leftRightSide = 512;
-    private int leftBottomSide = 150;
-    private int midLeftSide = 962;
-    private int midTopSide = 90;
-    private int midRightSide = 1012;
-    private int midBottomSide = 140;
+    private int leftLeftSide = 362;
+    private int leftTopSide = 150;
+    private int leftRightSide = 412;
+    private int leftBottomSide = 200;
+    private int midLeftSide = 862;
+    private int midTopSide = 165;
+    private int midRightSide = 912;
+    private int midBottomSide = 215;
     private double cbThreshold = 150;
     private long leftCount = 0;
     private long midCount = 0;

@@ -65,19 +65,31 @@ public class BlueCloseAutononomo extends LinearOpMode {
                 telemetry.update();
                 //line up with left spike tape
                 soupRobot.driveForward(0.4, 0.1, 800);
-                soupRobot.driveLeft(0.3, 0.75, 3000);
-                soupRobot.driveForward(0.4, 0.95, 2000);
+                soupRobot.driveLeft(0.7, 0.7, 1200);
+                soupRobot.driveForward(0.7, 0.9, 1200);
                 soupRobot.turnLeft(0.5, 1, 1000);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
-                soupRobot.driveForward(0.4, 0.5, 1500);
-                soupRobot.driveLeft(0.6, 0.1, 800);
+                soupRobot.driveForward(0.7, 0.5, 1000);
+                soupRobot.driveLeft(0.6, 0.15, 800);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
                 soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //go backstage
                 soupRobot.driveLeft(0.8, 0.7, 1500);
                 soupRobot.driveForward(0.8, 0.7, 1000);
@@ -92,23 +104,35 @@ public class BlueCloseAutononomo extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_FrontLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 //line up with spike tape and dodge prop
-                soupRobot.driveForward(0.6, 1.05, 3000);
-                soupRobot.turnRight(0.5, 2, 3000);
+                soupRobot.driveForward(0.8, 1.1, 1500);
+                soupRobot.turnRight(0.6, 1.95, 1500);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
-                soupRobot.driveRight(0.7, 1, 2000);
-                soupRobot.turnRight(0.7, 0.9, 1500);
-                soupRobot.driveForward(0.7, 0.4, 1000);
-                soupRobot.driveLeft(0.3, 0.1, 800);
+                soupRobot.driveRight(0.8, 1, 1000);
+                soupRobot.turnRight(0.7, 0.95, 1000);
+                soupRobot.driveForward(0.7, 0.2, 600);;
+                soupRobot.driveRight(0.5, 0.1, 500);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1300, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
-                soupRobot.driveBackwards(0.2, 1, 1000);
-                soupRobot.returnToClosed(0.4, 3000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
+                soupRobot.driveBackwards(0.1, 1, 1000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //go backstage
                 soupRobot.driveLeft(0.8,1, 1500);
-                soupRobot.driveForward(0.8, 0.8, 1000);
+                soupRobot.driveForward(0.8, 0.6, 1000);
                 break;
             case RIGHT:
                 //reset encoders on wheels
@@ -119,22 +143,34 @@ public class BlueCloseAutononomo extends LinearOpMode {
                 telemetry.addLine("it went right");
                 telemetry.update();
                 //line up with right spike tape
-                soupRobot.driveForward(0.5, 1, 1500);
-                soupRobot.turnLeft(0.5, 1, 1000);
+                soupRobot.driveForward(0.6, 1, 1100);
+                soupRobot.turnLeft(0.6, 1, 1000);
                 soupRobot.driveBackwards(0.5, 0.1, 800);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyBlue();
                 //head towards board
-                soupRobot.driveForward(0.5, 1.35, 2000);
-                soupRobot.driveRight(0.5, 0.45, 800);
+                soupRobot.driveForward(0.8, 1.35, 1000);
+                soupRobot.driveRight(0.7, 0.3, 800);
                 //score yellow pixel
-                soupRobot.scorePixel(0.5, 1400, 2000);
-                soupRobot.liftToPosition(0.5, 1800, 1000);
+                soupRobot.scorePixel(0.7, 1400, 1000);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.grab2.setPosition(0.2);
+                soupRobot.liftToPosition(0.8, 1800, 500);
                 soupRobot.driveBackwards(0.1, 1, 1000);
-                soupRobot.returnToClosed(0.3, 3000);
+                //pray the servos do what they're supposed to
+                soupRobot.grab1.setPosition(0);
+                soupRobot.grab2.setPosition(0.05);
+                soupRobot.grab1.setPosition(0);
+                //close lift
+                soupRobot.lifterDCMotor_Left.setPower(0.4);
+                soupRobot.lifterDCMotor_Right.setPower(0.4);
+                soupRobot.lifterDCMotor_Left.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Right.setTargetPosition(0);
+                soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //go backstage
-                soupRobot.driveLeft(0.5,1.25, 2500);
-                soupRobot.driveForward(0.5, 0.8, 1000);
+                soupRobot.driveLeft(0.7,1.15, 2000);
+                soupRobot.driveForward(0.7, 0.6, 1000);
                 break;
         }
     }
