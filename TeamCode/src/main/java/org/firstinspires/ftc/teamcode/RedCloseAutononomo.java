@@ -65,13 +65,13 @@ public class RedCloseAutononomo extends LinearOpMode {
                 telemetry.update();
                 //line up with left spike tape
                 soupRobot.driveForward(0.6, 1, 1100);
-                soupRobot.turnRight(0.6, 0.9, 1000);
+                soupRobot.turnRight(0.6, 1, 1000);
                 soupRobot.driveBackwards(0.5, 0.15, 800);
                 //drop purple pixel
                 soupRobot.placePixelDelicatelyRed();
                 //head towards board
                 soupRobot.driveForward(0.8, 1.4, 1500);
-                soupRobot.driveLeft(0.7, 0.2, 800);
+                soupRobot.driveLeft(0.7, 0.4, 800);
                 //score yellow pixel
                 soupRobot.scorePixel(0.7, 1400, 1000);
                 soupRobot.grab2.setPosition(0.2);
@@ -90,7 +90,7 @@ public class RedCloseAutononomo extends LinearOpMode {
                 soupRobot.lifterDCMotor_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 soupRobot.lifterDCMotor_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 //go backstage
-                soupRobot.driveRight(0.7,1.15, 2000);
+                soupRobot.driveRight(0.7,1.4, 2000);
                 soupRobot.driveForward(0.7, 0.6, 1000);
                 break;
             case MIDDLE:

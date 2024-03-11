@@ -57,4 +57,5 @@ public class ColorMeMaybe {
         NormalizedRGBA color = colorSesnor.getNormalizedColors();
         return color;
     }
+
 }

@@ -55,12 +55,13 @@ public class killme extends LinearOpMode {
             //airplane
             airplaneLaunch();
 
-            //color sensor
+            //color sensor & telemetry
             NormalizedRGBA color = soupRobot.sensors.returnColors();
             telemetry.addData("Red", color.red);
             telemetry.addData("Blue", color.blue);
             telemetry.addData("Green", color.green);
             telemetry.addData("Color", soupRobot.sensors.findPixelColor());
+            telemetry.addData("Pixel Stick (0.2 open 0.05 closed)", soupRobot.grab2.getPosition());
             telemetry.update();
 
         }
@@ -70,9 +71,7 @@ public class killme extends LinearOpMode {
     private void airplaneLaunch() {
         //launch airplane using left bumper (gamepad 2)
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
-            soupRobot.airplane.setPower(2);
-        } else {
-            soupRobot.airplane.setPower(0);
+            soupRobot.airplane.setPosition(0.7);
         }
     }
 
@@ -99,6 +98,7 @@ public class killme extends LinearOpMode {
         //grab pixel with intake wheels
         if (gamepad1.right_bumper || gamepad2.right_bumper) {
             soupRobot.intake.setPower(-1);
+            soupRobot.grab2.setPosition(0.2);
 
         } else if ((gamepad1.right_trigger > 0) || (gamepad2.right_trigger > 0)) {
             soupRobot.intake.setPower(1);

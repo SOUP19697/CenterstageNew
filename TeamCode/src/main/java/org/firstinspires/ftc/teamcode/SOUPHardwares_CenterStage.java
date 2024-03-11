@@ -29,7 +29,7 @@ public class SOUPHardwares_CenterStage {
     public Servo pixeler2;
 
     //airplane
-    public DcMotor airplane = null;
+    public Servo airplane = null;
 
     //grabby guys
     public Servo grab1;
@@ -78,7 +78,7 @@ public class SOUPHardwares_CenterStage {
         pixeler2 = hardwareMap.get(Servo.class, "pixeler2");
 
         //airplane launcher
-        airplane = hardwareMap.get(DcMotor.class, "airplane");
+        airplane = hardwareMap.get(Servo.class, "airplane");
 
         //grabby guys
         grab1 = hardwareMap.get(Servo.class, "grab1");
@@ -108,6 +108,7 @@ public class SOUPHardwares_CenterStage {
         lifterDCMotor_Right.setDirection(  DcMotor.Direction.REVERSE);
         pixeler1.setDirection(Servo.Direction.FORWARD);
         pixeler2.setDirection(Servo.Direction.REVERSE);
+        airplane.setDirection(Servo.Direction.REVERSE);
 
         // SET ZERO POWER BEHAVIOR
         // chassis motors

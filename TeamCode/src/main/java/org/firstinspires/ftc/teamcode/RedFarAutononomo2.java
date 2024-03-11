@@ -62,6 +62,7 @@ public class RedFarAutononomo2 extends LinearOpMode {
                 soupRobot.drivetrainDCMotor_RearLeft.setMode( DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 telemetry.addLine("it went left");
                 telemetry.update();
+                sleep(5000);
                 //line up with left spike tape
                 soupRobot.driveForward(0.5, 0.1, 500);
                 soupRobot.driveLeft(0.5, 0.8, 1500);
